@@ -1,1 +1,14 @@
-<h2>Próximamente el LOGIN</h2>
+<form action="/admin/login" method="post">
+  <div class="mb-3">
+    <input placeholder="Usuario" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="usuario">
+  </div>
+  <div class="mb-3">
+    <input placeholder="Password" type="password" class="form-control" id="exampleInputPassword1" name="password">
+  </div>
+  <button type="submit" class="btn btn-primary">Ingresar</button>
+</form>
+<form>
+{{#if error}}
+<p>Usuario o password incorrectos.</p>
+{{/if}}
+</form>
