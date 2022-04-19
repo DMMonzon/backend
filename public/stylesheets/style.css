@@ -98,3 +98,15 @@ input {
 button {
   margin: 0px 10px;
 }
+.container {
+  display: block;
+  justify-content: center;
+  align-items: center;
+  width: 800px;
+}
+.row {
+  width: 100%;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}

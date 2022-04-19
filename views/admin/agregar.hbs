@@ -1,0 +1,18 @@
+<h5 style="text-align: center; margin-top:50px;">Formulario para cargar novedades</h5>
+<form action="/admin/novedades/agregar" method="post">
+  <div class="mb-3">
+    <input placeholder="Título" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="titulo">
+  </div>
+  <div class="mb-3">
+    <input placeholder="Subtítulo" type="text" class="form-control" id="exampleInputPassword1" name="subtitulo">
+  </div>
+  <div class="mb-3">
+    <input placeholder="Cuerpo" type="text" class="form-control" id="exampleInputPassword1" name="cuerpo">
+  </div>
+  <button type="submit" class="btn btn-primary">Guardar novedad</button>
+  {{#if error}}
+  <h5>
+    {{message}}
+  </h5>
+  {{/if}}
+</form>
