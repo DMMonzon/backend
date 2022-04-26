@@ -1,0 +1,42 @@
+<div class="log">Hola
+  {{usuario}}
+  <a href="/admin/login" logout><button><i
+        class="fa-solid fa-circle-xmark"
+      ></i>Salir</button></a>
+</div>
+
+<br class="container">
+
+<div class="row">
+  <div class="col">
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th></th>
+          <th scope="col"><h5>Listado de Noticias</h5></th>
+          <th scope="col" class="text-end"><a href="/admin/noticias/agregarNoticias"><i class="fa fa-plus"></i>Agregar noticia:</a></th>
+        </tr>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Título</th>
+          <th scope="col" class="text-end">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each noticias}}
+        <tr>
+          <th scope="row">{{id}}</th>
+          <td>{{titulo}}</td>
+          <td class="text-end">
+            <a href="/admin/noticias/modificarNoticias/{{id}}" class="btn btn-sm btn-secondary">
+            <i class="fa fa-pencil"></i></a>
+            <a href="/admin/noticias/eliminarNoticias/{{id}}" class="btn btn-sm btn-secondary">
+            <i class="fa fa-trash"></i></a>
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>

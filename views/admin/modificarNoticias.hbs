@@ -1,0 +1,36 @@
+<h5 style="text-align: center; margin-top:50px;">Modificar noticia</h5>
+<form action="/admin/noticias/modificarNoticias" method="post">
+  <div class="mb-3">
+    <input type="hidden" name="id" value="{{noticias.id}}">
+  </div>
+  <div class="mb-3">
+    <input placeholder="Título" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="titulo" value="{{noticias.titulo}}">
+  </div>
+  <div class="mb-3">
+    <input placeholder="Subtítulo" type="text" class="form-control" id="exampleInputPassword1" name="subtitulo" value="{{noticias.subtitulo}}">
+  </div>
+  <div class="mb-3">
+    <input placeholder="Hashtag 1" type="text" class="form-control" id="exampleInputPassword1" name="hash1" value="{{noticias.hash1}}">
+  </div>
+  <div class="mb-3">
+    <input placeholder="Hashtag 2" type="text" class="form-control" id="exampleInputPassword1" name="hash2" value="{{noticias.hash2}}">
+  </div>
+  <div class="mb-3">
+    <input placeholder="Hashtag 3" type="text" class="form-control" id="exampleInputPassword1" name="hash3" value="{{noticias.hash3}}">
+  </div>
+  <div class="mb-3">
+    <input placeholder="Fuente 1" type="text" class="form-control" id="exampleInputPassword1" name="fuente1" value="{{noticias.fuente1}}">
+  </div>
+  <div class="mb-3">
+    <input placeholder="Fuente 2" type="text" class="form-control" id="exampleInputPassword1" name="fuente2" value="{{noticias.fuente2}}">
+  </div>
+  <div class="mb-3">
+    <input placeholder="Fuente 3" type="text" class="form-control" id="exampleInputPassword1" name="fuente3" value="{{noticias.fuente3}}">
+  </div>
+  <button type="submit" class="btn btn-primary">Modificar noticia</button>
+  {{#if error}}
+  <h5>
+    {{message}}
+  </h5>
+  {{/if}}
+</form>
