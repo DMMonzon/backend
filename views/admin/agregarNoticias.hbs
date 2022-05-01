@@ -1,10 +1,13 @@
 <h5 style="text-align: center; margin-top:50px;">Formulario para cargar Noticias</h5>
-<form action="/admin/noticias/agregarNoticias" method="post">
+<form action="/admin/noticias/agregarNoticias" method="post" enctype="multipart/form-data">
   <div class="mb-3">
     <input placeholder="Título" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="titulo">
   </div>
   <div class="mb-3">
     <input placeholder="Subtítulo" type="text" class="form-control" id="exampleInputPassword1" name="subtitulo">
+  </div>
+  <div class="mb-3">
+    <label>Imagen: <input type="file" id="imagen" name="imagen"></label>
   </div>
   <div class="mb-3">
     <input placeholder="Hashtag 1" type="text" class="form-control" id="exampleInputPassword1" name="hash1">

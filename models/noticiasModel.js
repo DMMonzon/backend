@@ -2,7 +2,7 @@ var pool = require('./bd');
 
 /* listar */
 async function getNoticias() {
-    var query = "select * from noticias order by id desc limit 3";
+    var query = "select * from noticias order by id desc";
     var rows = await pool.query(query);
     return rows;
 }

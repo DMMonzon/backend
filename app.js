@@ -3,6 +3,8 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var fileUpload = require('express-fileupload');
+var cors = require('cors');
 
 require('dotenv').config();
 var session = require('express-session');
@@ -12,6 +14,8 @@ var usersRouter = require('./routes/users');
 var loginRouter = require('./routes/admin/login');
 var session = require('express-session');
 var adminRouter = require('./routes/admin/noticias');
+var apiRouter = require('./routes/api');
+
 
 var app = express();
 
@@ -27,7 +31,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(session({
   secret: 'newZcontraseñaparaentrar',
-  cookie: { maxAge: null},
+  cookie: { maxAge: null },
   resave: false,
   saveUninitialized: true
 }))
@@ -45,7 +49,12 @@ secured = async (req, res, next) => {
   }
 }
 
-app.get('/',function(req, res){
+app.use(fileUpload({
+  useTempFiles: true,
+  tempFileDir: '/tmp/'
+}));
+
+app.get('/', function (req, res) {
   var conocido = Boolean(req.session.nombre);
 
   res.render('index', {
@@ -55,16 +64,16 @@ app.get('/',function(req, res){
   });
 });
 
-app.post('/ingresar', function(req, res) {
-  if (req.body.nombre) { 
+app.post('/ingresar', function (req, res) {
+  if (req.body.nombre) {
     req.session.nombre = req.body.nombre
-}
-res.redirect( '/'); 
+  }
+  res.redirect('/');
 });
 
-app.get('/salir', function(req, res) { 
-req.session.destroy( ); res.redirect('/'); 
-}); 
+app.get('/salir', function (req, res) {
+  req.session.destroy(); res.redirect('/');
+});
 
 // 
 app.use('/', indexRouter);
@@ -72,14 +81,15 @@ app.use('/users', usersRouter);
 app.use('/admin/login', loginRouter);
 app.use('/admin/novedades', secured, adminRouter);
 app.use('/admin/noticias', secured, adminRouter);
+app.use('/api', cors(), apiRouter);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};

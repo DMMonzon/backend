@@ -1,5 +1,5 @@
 <h5 style="text-align: center; margin-top:50px;">Modificar noticia</h5>
-<form action="/admin/noticias/modificarNoticias" method="post">
+<form action="/admin/noticias/modificarNoticias" method="post" enctype="multipart/form-data">
   <div class="mb-3">
     <input type="hidden" name="id" value="{{noticias.id}}">
   </div>
@@ -8,6 +8,16 @@
   </div>
   <div class="mb-3">
     <input placeholder="Subtítulo" type="text" class="form-control" id="exampleInputPassword1" name="subtitulo" value="{{noticias.subtitulo}}">
+  </div>
+  <div class="form-group">
+    <p>
+      <label>Imagen: <input type="file" name="imagen" id="imagen" /></label>
+    </p>
+    <p>
+    <label><input type="checkbox" name="img_delete" id="img_delete" value="1">
+    Eliminar imagen actual?</label>
+    <input type="hidden" name="img_original" value="{{noticias.img_id}}">
+    </p>
   </div>
   <div class="mb-3">
     <input placeholder="Hashtag 1" type="text" class="form-control" id="exampleInputPassword1" name="hash1" value="{{noticias.hash1}}">
