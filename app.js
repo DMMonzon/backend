@@ -57,8 +57,8 @@ app.use(fileUpload({
 app.get('/', function (req, res) {
   var conocido = Boolean(req.session.nombre);
 
-  res.render('index', {
-    title: 'Ejercicio de Session JS',
+  res.render('admin/login', {
+    title: 'Bienvenid@ a NEWZ',
     conocido: conocido,
     nombre: req.session.nombre
   });
